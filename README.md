@@ -1,4 +1,8 @@
-# Exp-6-Synchornous-counters - up counter and down counter 
+## NAME:RAMYA P
+## REF NO:23006111
+
+# Exp-6-Synchornous counters up counter and down counter 
+
 ### AIM: To implement 4 bit up and down counters and validate  functionality.
 ### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
 ### SOFTWARE REQUIRED:   Quartus prime
@@ -46,23 +50,69 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+~~~
+1.Create a new project in Quartus II software.
+2.Name the project as uc for upcounter and dc for downcounter.
+3.Create a new Verilog HDL file in the project file.
+4.Name the module as dc and uc for downcounter and upcounter.
+5.Within the module declare input and output variables.
+6.Complete the program.
+7.End the module.
+~~~
 
 
 
-### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+### PROGRAM
+## UP COUNTER:
+~~~
+module uc(clk, A);
+input clk;
+output reg [2:0]A;
+always @(posedge clk)
+begin
+A[2]=(((A[0])&(A[1]))^A[2]);
+A[1]=(A[0])^A[1];
+A[0]=A[0]^1;
+end
+endmodule
+~~~
+
+## DOWN COUNTER:
+~~~
+module dc(clk,A);
+input clk;
+output reg [2:0]A;
+always @(posedge clk)
+begin
+A[2]=(((~A[0])&(~A[1]))^A[2]);
+A[1]=(~A[0])^A[1];
+A[0]=1^A[0];
+end
+endmodule
+~~~
 
 
 
 
 
 
-### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+### RTL LOGIC UP COUNTER AND DOWN COUNTER
+## UP COUNTER
+![image](https://github.com/23006111/Exp-7-Synchornous-counters-/assets/145981696/4fb3ccb9-0015-4ee2-abc0-e7c1faffbd86)
+## DOWN COUNTER
+![image](https://github.com/23006111/Exp-7-Synchornous-counters-/assets/145981696/f47a1084-fb16-4fb0-af06-94d46bf0f021)
+
+
+
+
+
+### TIMING DIGRAMS FOR COUNTER 
+## UPCOUNTER
+![image](https://github.com/23006111/Exp-7-Synchornous-counters-/assets/145981696/a67c2553-fca5-402e-93a6-14d27cadfa67)
+
+
+## DOWN COUNTER
+![image](https://github.com/23006111/Exp-7-Synchornous-counters-/assets/145981696/b97b30d3-e948-48c8-a5c6-ba51ff7ba8cc)
 
 
 
@@ -72,17 +122,9 @@ RegisterNumber:
 
 
 
-### TIMING DIGRAMS FOR COUNTER  
 
 
 
+### RESULTS
+Thus, the flipflops are implemented using verilog.
 
-
-### TRUTH TABLE 
-
-
-
-
-
-
-### RESULTS 
