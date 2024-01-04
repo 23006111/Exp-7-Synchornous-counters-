@@ -126,5 +126,4 @@ endmodule
 
 
 ### RESULTS
-Thus, the flipflops are implemented using verilog.
-
+Thus we have verified the truthtable of 3-bit up and down counter using verilog.
